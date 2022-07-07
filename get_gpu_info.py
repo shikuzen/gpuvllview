@@ -1,5 +1,6 @@
 import paramiko
-from multiprocessing import Process, Queue, set_start_method
+import threading
+from queue import Queue
 import json
 
 def _ssh_to_server(server, username, password, queue):
@@ -70,13 +71,13 @@ def get_server_info(username, password, server_prefix='10.204.100'):
         'error': 'gpustat: command not found'
     }]
     '''
-    set_start_method('fork')
+
     processes = []
     pm_obj = Queue()
 
     for i in range(111, 130):
         server_ip = f'{server_prefix}.{i}'
-        p = Process(target=_ssh_to_server, args=(server_ip, username, password, pm_obj))
+        p = threading.Thread(target=_ssh_to_server, args=(server_ip, username, password, pm_obj))
         p.start()
         processes.append(p)
 
