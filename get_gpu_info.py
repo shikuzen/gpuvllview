@@ -70,7 +70,7 @@ def get_server_info(username, password, server_prefix='10.204.100'):
         'error': 'gpustat: command not found'
     }]
     '''
-    set_start_method('fork')
+    set_start_method('spawn')
     processes = []
     pm_obj = Queue()
 
