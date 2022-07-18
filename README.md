@@ -2,6 +2,6 @@
 Monitor VLL cluster GPU
 
 
-### **Pip Requirements**
+### **Dependencies**
 
 ```pip install -r requirements.txt```
