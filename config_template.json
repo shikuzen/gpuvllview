@@ -1,0 +1,7 @@
+{
+    "hosts": [
+        "10.10.10.10"
+    ],
+    "username": "user1",
+    "password": "password"
+}
